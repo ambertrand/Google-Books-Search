@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Header from './components/Header';
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <Router>
       <>
       <Navbar />
+      <Header />
       </>
     </Router>
   );
