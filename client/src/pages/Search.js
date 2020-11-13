@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { SearchBox, FormBtn } from '../components/Form';
+// import API from '../utils/API';
+// import Book from '../components/Book';
 
 const Search = () => {
+   
+
     return(
         <Container>
             <Row>
@@ -15,7 +19,12 @@ const Search = () => {
                             name="book search"
                             placeholder="Book Title"
                         />
-                        <FormBtn>Search</FormBtn>
+                        <FormBtn
+                        
+                        // onClick={handleFormSubmit}
+                        >
+                        Search
+                        </FormBtn>
                     </form>
                 </Col>
             </Row>
