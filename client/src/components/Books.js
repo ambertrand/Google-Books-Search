@@ -5,22 +5,23 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Image from 'react-bootstrap/Image';
 import API from '../utils/API';
 
 
-const Books = ({ bookData }) => {
+const Books = ({ volumeInfo }) => {
     
     function handleBookSubmit(event) {
         event.preventDefault();
-        if (bookData.title) {
+        if (volumeInfo.title) {
             API.saveBook(
                 {
-                    id: bookData.id,
-                    title: bookData.volumeInfo.title,
-                    author: bookData.volumeInfo.author,
-                    description: bookData.volumeInfo.description,
-                    image: bookData.volumeInfo.imageLinks.thumbnail,
-                    link: bookData.volumeInfo.infoLink
+                    id: volumeInfo.id,
+                    title: volumeInfo.title,
+                    author: volumeInfo.authors,
+                    description: volumeInfo.description,
+                    image: volumeInfo.imageLinks.thumbnail,
+                    link: volumeInfo.infoLink
                 }
             )
             .then(res => console.log(res))
@@ -36,12 +37,14 @@ const Books = ({ bookData }) => {
                 <Col md={12}>
                     <Card className="mb-2">
                         <Card.Body>
-                            <Card.Title>{bookData.title}</Card.Title>
-                            <Card.Subtitle>{bookData.subtitle}</Card.Subtitle>
-                        
+                            <Card.Title>{volumeInfo.title}</Card.Title>
+                            <Card.Subtitle>{"Written By " + volumeInfo.authors}</Card.Subtitle>
+                            <Card.Text>{volumeInfo.description}</Card.Text>    
+                            <Card.Text><Image src={volumeInfo.imageLinks.thumbnail} alt="Book Cover" thumbnail />{volumeInfo.description || "No description provided by Google Books"}</Card.Text>                     
+                            <Card.Link href={volumeInfo.infoLink}></Card.Link>
                             <ButtonGroup>
-                                <Button href={bookData.infoLink} size="sm">View</Button>
-                                <Button size="sm" onClick={handleBookSubmit}>Save</Button>
+                                <Button href={volumeInfo.infoLink} size="sm" variant="outline-primary">View</Button>
+                                <Button className="ml-2" size="sm" variant="outline-primary" onClick={handleBookSubmit}>Save</Button>
                             </ButtonGroup>
 
                         </Card.Body>

@@ -1,27 +1,27 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { SearchBox, FormBtn } from '../components/Form';
-// import Book from '../components/Books';
+import Books from '../components/Books';
 import API from '../utils/API';
 
 const Search = () => {
 
-    const [searchTerm, setSearchTerm] = useState({});
+    const [searchTerm, setSearchTerm] = useState("Harry Potter");
     const [books, setBooks] = useState([]);
 
-    useEffect(() =>{
+    useEffect(() => {
         loadBooks()
-    }, []);
+    });
 
     function loadBooks() {
-        API.searchBooks()
-          .then(res => 
-            setBooks(res.data)
-          )
-          .catch(err => console.log(err));
-      };
+        API.searchBooks(searchTerm)
+            .then(res =>
+                setBooks(res.data.items)
+            )
+            .catch(err => console.log(err));
+    };
 
     function handleInputChange(event) {
         const { value } = event.target;
@@ -55,22 +55,21 @@ const Search = () => {
                                 onClick={handleFormSubmit}
                             >
                                 Search
-                        </FormBtn>
+                            </FormBtn>
                         </form>
                     </Col>
                 </Row>
             </Container>
             <section>
-                <Container>
+                <Container className="mt-3">
                     <h2>Results</h2>
                     <Row>
-                        {/* {books ? books.map((book) =>(
-                            <Book
-                            key={book.id}
-                            bookData={book.bookData}
+                        {books ? books.map((book) => (
+                            <Books
+                                key={book.id}
+                                volumeInfo={book.volumeInfo}
                             />
-                        ))
-                        : null} */}
+                        )) : null}
                     </Row>
                 </Container>
             </section>
