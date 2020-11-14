@@ -10,12 +10,12 @@
  * [Contact](#contact)
 
 ## Description
- This application showcases the web development projects I have created so far with a mobile-first design.
+ This application allows the user to search for books from the Google Books API.
 
  Below are the screenshots of the finished product.
 
 ### Project Link:
-[Google Books]()
+[Google Books](https://pure-retreat-07002.herokuapp.com/)
 
 ## Technologies Used
     * Basic: HTML, CSS & Javascript
@@ -28,10 +28,10 @@
 
 
 ## Developer Notes:
-For this project I was tasked with updating my developer portfolio.  
+For this project I was tasked with creating a full MERN application using a Google Books API to search for books in the Google library. After looking back at the activities from the previous week I was able to create alot of the files needed based on the structure that they had set up in an activity.  Overall the project was not super difficult and feel like I am starting to grasp React a lot better. 
 
 ## Images
-
+![Search screenshot](https://user-images.githubusercontent.com/65721950/99157186-dd9cfb00-2694-11eb-8d50-f868a1b2f135.png)
 
 
 # License
