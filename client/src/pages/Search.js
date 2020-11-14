@@ -8,7 +8,7 @@ import API from '../utils/API';
 
 const Search = () => {
 
-    const [searchTerm, setSearchTerm] = useState("Harry Potter");
+    const [searchTerm, setSearchTerm] = useState({});
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
