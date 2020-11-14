@@ -18,7 +18,7 @@ const Books = ({ volumeInfo }) => {
                 {
                     id: volumeInfo.id,
                     title: volumeInfo.title,
-                    author: volumeInfo.authors,
+                    authors: volumeInfo.authors,
                     description: volumeInfo.description,
                     image: volumeInfo.imageLinks.thumbnail,
                     link: volumeInfo.infoLink

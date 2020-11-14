@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
+
 
 export default {
     
-    searchBooks: function(searchTerm) {
+    searchBooks: function (searchTerm) {
         return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`);
     },
-
     // Gets all books
     getBooks: function () {
         return axios.get("/api/books");
@@ -19,7 +19,7 @@ export default {
         return axios.delete("/api/books/" + id);
     },
     // Saves a book to the database
-    saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
-  }
-}
+    saveBook: function (bookData) {
+        return axios.post("/api/books", bookData);
+    }
+};

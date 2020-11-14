@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,9 +11,9 @@ const Search = () => {
     const [searchTerm, setSearchTerm] = useState({});
     const [books, setBooks] = useState([]);
 
-    useEffect(() => {
-        loadBooks()
-    });
+    // useEffect(() => {
+    //     loadBooks()
+    // });
 
     function loadBooks() {
         API.searchBooks(searchTerm)
